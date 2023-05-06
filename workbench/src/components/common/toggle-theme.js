@@ -12,25 +12,22 @@ const ToggleTheme = ({onColorChange}) => {
 		}
 	};
 
-const handleCtoggle = (e) => {
-    onColorChange(e.target.value);
-}
-
 	return (
         <>
-            <Form className="toggle-switch">
-                <Form.Label onClick={() => handleToggle(false)}>
-                </Form.Label>
-                <Form.Check
-                    type="switch"
-                    id="custom-switch"
-                    checked={toggleSwitch}
-                    onChange={() => handleToggle(!toggleSwitch)}
-                />
-                <Form.Label onClick={() => handleToggle(true)}>
-                </Form.Label>
-            </Form>
-            <Form.Control type="color" onChange={handleCtoggle}></Form.Control>
+			<Form className="toggle-switch">
+				<Form.Label onClick={() => handleToggle(false)}>
+					<i className="bi bi-sun-fill"></i>
+				</Form.Label>
+				<Form.Check
+					type="switch"
+					id="custom-switch"
+					checked={toggleSwitch}
+					onChange={() => handleToggle(!toggleSwitch)}
+				/>
+				<Form.Label onClick={() => handleToggle(true)}>
+					<i className="bi bi-moon-fill"></i>
+				</Form.Label>
+			</Form>
         </>
 	);
 };
