@@ -1,41 +1,67 @@
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 
-function TasksContent() {
-
+function TaskContent() {
   const [tasks, setTasks] = useState([]);
+  const [taskName, setTaskName] = useState('');
+  const [show, setShow] = useState(false);
 
-  const handleAddTask = (newTask) => {
-    setTasks([...tasks, newTask]);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const addTask = (event) => {
+    event.preventDefault();
+    if (taskName.trim() !== '') {
+      setTasks([...tasks, taskName]);
+      setTaskName('');
+    }
   };
 
-  const handleRemoveTask = (index) => {
+  const removeTask = (index) => {
     const newTasks = [...tasks];
     newTasks.splice(index, 1);
     setTasks(newTasks);
   };
 
+  const handleTaskNameChange = (event) => {
+    setTaskName(event.target.value);
+  };
+
   return (
     <>
-        <h2>TASKS</h2>
+      <div>
         <div className="tasks-content">
-        <div className="tasks-buttons">
-            <Button className="addtask" onClick={() => handleAddTask('New Task')}>
-            <i className="bi bi-plus"></i>New Task
-            </Button>{' '}
+          <h2>My tasks</h2>
+          <form onSubmit={addTask}>
+            <Button type="submit" onClick={handleShow}><i className="bi bi-plus"></i>New Task</Button>
+            <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+              <Modal.Header closeButton>
+                <Modal.Title>Add new task</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <input type="text" name="taskName" value={taskName} placeholder="Tasks text" onChange={handleTaskNameChange} />
+              </Modal.Body>
+              <Modal.Footer>
+                <Button variant="secondary" onClick={handleClose}>
+                  Cancel
+                </Button>
+                <Button variant="primary">Add</Button>
+              </Modal.Footer>
+            </Modal>
+          </form>
+          <ul>
             {tasks.map((task, index) => (
-            <Button
-                key={index}
-                className="removetask"
-                onClick={() => handleRemoveTask(index)}
-            >
-                <i className="bi bi-x"></i>Delete Task
-            </Button>
+              <li key={index}>
+                {task}{" "}
+                <Button onClick={() => removeTask(index)}><i className="bi bi-x"></i>Remove Task</Button>
+              </li>
             ))}
+          </ul>
         </div>
-        </div>
+      </div>
     </>
   );
-}
+};
 
-export default TasksContent;
+export default TaskContent;
