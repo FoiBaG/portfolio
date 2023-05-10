@@ -22,13 +22,13 @@ function FormInput() {
                             <option value="5">Other</option>
                         </select>
                     <label>Would you recommend freeCodeCamp to a friend?</label>
-                        <input type="radio" name="radio" value="opcao1" required></input>Definitely
-                        <input type="radio" name="radio" value="opcao2" required></input>Maybe
-                        <input type="radio" name="radio" value="opcao2" required></input>Not sure
+                        <input type="radio" name="radio" value="1" required></input>Definitely
+                        <input type="radio" name="radio" value="2" required></input>Maybe
+                        <input type="radio" name="radio" value="3" required></input>Not sure
                     <label>What would you like to see improved? (Check all that apply)</label>
-                        <input type="checkbox" name="checkbox1" value=""></input>Front-end Projects
-                        <input type="checkbox" name="checkbox2" value="1"></input>Back-end Projects
-                        <input type="checkbox" name="checkbox3" value="2"></input>Full-stack Projects
+                        <input type="checkbox" name="checkbox1" value="front-end-projects"></input>Front-end Projects
+                        <input type="checkbox" name="checkbox2" value="back-end-projects"></input>Back-end Projects
+                        <input type="checkbox" name="checkbox3" value="full-stack-projects"></input>Full-stack Projects
                     <label for="comments">Any comments or suggestions?</label>
                         <textarea id="comments" name="comments" placeholder="Enter your comment here..."></textarea>
                     <button type="submit" id="submit">Submit</button>
