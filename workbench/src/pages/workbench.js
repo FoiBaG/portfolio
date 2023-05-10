@@ -6,6 +6,7 @@ import CalendarNote from '../components/calendar';
 import NotesComp from '../components/notes';
 import LinksContent from '../components/links';
 import Calculator from '../components/calculator';
+import { Button } from 'react-bootstrap';
 
 
 function WorkBench() {
@@ -13,6 +14,7 @@ function WorkBench() {
   return (
     <>
         <Header />
+        <Button href='/projects'>Projects</Button>
         <TasksContent />
         <Clock />
         <CalendarNote />
