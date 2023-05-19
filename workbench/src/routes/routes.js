@@ -1,6 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
-import { WorkBench } from '../pages/workbench';
-import { FormInput } from '../components/study/form';
+import WorkBench from '../pages/workbench';
+import FormInput from '../components/study/form';
 
 const router = createBrowserRouter([
 	{
