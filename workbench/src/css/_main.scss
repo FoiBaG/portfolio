@@ -9,167 +9,81 @@
 
 .navbar {
     display: flex;
-    height: 2rem;
+    justify-content: space-between;
+    height: 40px;
     background-color: var(--bs-gray-200);
 
-    .container {
-        justify-content: right;
-    }
+    .toggle-switch {
+      display: inline-flex;
+      justify-content: space-between;
 
-        .toggle-switch {
-            display: flex;
-            margin-right: map-get($spacers, 3);
-            color: var(--bs-white);
-            font-weight: bold;
-            justify-content: center;
+      .form-check-input {
+        border: none;
+      }
 
-            .form-label {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
+      .form-label {
+        margin: 0;
 
-            .form-switch {
-                margin-left: map-get($spacers, 2);
-                margin-right: map-get($spacers, 2);
-            }
-
-            .form-check-input {
-                position: relative;
-                display: block;
-                margin-top: 5px;
-                width: 40px;
-                height: 20px;
-                border-radius: 160px;
-                background-color: var(--bs-gray);
-                transition: 0.5s;
-                cursor: pointer;
-            }
-
-            .bi-sun-fill {
-                font-size: 1rem;
-                color: var(--bs-yellow);
-            }
-
-            .bi-moon-fill {
-                font-size: 1rem;
-                color: var(--bs-gray-600);
-            }
+        .bi-sun-fill {
+          color: var(--bs-yellow);
         }
+
+        .bi-moon-fill {
+          color: var(--bs-gray);
+        }
+      }
+
+      .form-switch {
+        display: flex;
+        justify-content: center;
+      }
+    }
+}
+
+//--------------------------------------------------------------------
+
+//WORKBENCH
+
+.body-container {
+  max-width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//--------------------------------------------------------------------
+
+//CLOCK
+
+.body-clock {
+    display: flex;
+    background-color: var(--bs-gray-200);
+    max-width: 450px;
+    height: 200px;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    margin: 10px 10px;
 }
 
 //--------------------------------------------------------------------
 
 //FORM CSS
 
-.form-body {
-	margin: 0;
-	padding: 0;
-}
-
-#title {
-	font-size: 2.5em;
-	text-align: center;
-	margin-top: 2em;
-}
-
-#description {
-	font-size: 1.2em;
-	text-align: center;
-	margin-top: 1.5em;
-}
-
-form {
-	margin: 2em 0;
-	padding: 2em;
-	background-color: black;
-	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-label {
-	display: block;
-	font-size: 1.2em;
-	margin-top: 1em;
-}
-
-input[type="text"] {
-	width: 100%;
-	padding: 0.5em;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	margin-top: 0.5em;
-	font-size: 1.2em;
-}
-
-input[type="email"] {
-	width: 100%;
-	padding: 0.5em;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	margin-top: 0.5em;
-	font-size: 1.2em;
-}
-
-textarea {
-	width: 100%;
-	padding: 0.5em;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	margin-top: 0.5em;
-	font-size: 1.2em;
-}
-
-input[type="number"] {
-	width: 100%;
-	padding: 0.5em;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	margin-top: 0.5em;
-	font-size: 1.2em;
-}
-
-select {
-	width: 100%;
-	padding: 0.5em;
-	border-radius: 5px;
-	border: 1px solid #ccc;
-	margin-top: 0.5em;
-	font-size: 1.2em;
-}
-
-input[type="checkbox"] {
-	margin-left: 1em;
-}
-
-button {
-  display: block;
-	width: 60%;
-	margin: 1em auto;
-	height: 2em;
-	font-size: 1.1rem;
-	background-color: yellow;
-	color: black;
-	border: none;
-	border-radius: 5px;
-	min-width: 300px;
-
-	&:hover {
-		background-color: white;
-	}
-}
-
 //--------------------------------------------------------------------
 
 //NOTES
 
 .notes-content {
-    padding: 1rem;
-    background-color: var(--bs-gray-200);
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 1rem;
+  display: inline-block;
+  background-color: var(--bs-gray-200);
+  max-width: 450px;
+  height: 200px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  margin: 10px 10px;
 
     .notes-header {
         display: flex;
@@ -219,14 +133,24 @@ button {
 //TASKS
 
 .tasks-content {
-    padding: 1rem;
-    background-color: var(--bs-gray-200);
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.2rem;
+  display: inline-block;
+  padding: 1rem;
+  margin: 10px 10px;
+  background-color: var(--bs-gray-200);
+  max-width: 450px;
+  max-height: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+
+  .tasks-body {
+    height: 700px;
+    max-height: 700px;
+    background-color: var(--bs-white);
     border-radius: 1rem;
+    margin: 1rem;
   }
+}
 
   .tasks-buttons {
     display: flex;
@@ -281,13 +205,15 @@ button {
 //CALCULATOR
 
 .calculator {
-    padding: 1rem;
-    background-color: var(--bs-gray-200);
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 1rem;
+  display: inline-block;
+  padding: 1rem;
+  margin: 10px 10px;
+  background-color: var(--bs-gray-200);
+  max-width: 450px;
+  max-height: 450px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 1rem;
   }
 
   input[type="text"] {
@@ -341,62 +267,30 @@ button {
 
 //CALENDAR
 
-.calendar {
-    padding: 1rem;
-    background-color: var(--bs-gray-200);
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.2rem;
-    border-radius: 1rem;
-  }
+.body-calendar {
+  display: inline-block;
+  background-color: var(--bs-gray-200);
+  max-width: 450px;
+  height: 200px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  margin: 10px 10px;
+}
 
-  .calendar h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
+//--------------------------------------------------------------------
 
-  .calendar .calendar-details {
-    font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    color: #666;
-  }
+//LINKS
 
-  .react-calendar {
-    border: none;
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-
-  .react-calendar__month-view__weekdays__weekday {
-    font-weight: bold;
-    color: #666;
-  }
-
-  .react-calendar__tile--now {
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  .react-calendar__tile--active,
-  .react-calendar__tile--active:enabled:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  .react-calendar__tile--active:disabled {
-    background-color: #f0f0f0;
-    color: #bbb;
-  }
-
-  .react-calendar__tile--hasActive:hover {
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  .react-calendar__tile--hasActive.react-calendar__tile--active {
-    background-color: #007bff;
-    color: #fff;
-  }
+.body-links {
+  display: inline-block;
+  background-color: var(--bs-gray-200);
+  max-width: 450px;
+  height: 200px;
+  text-align: center;
+  font-size: 1.2rem;
+  border-radius: 1rem;
+  margin: 10px 10px;
+}
 
 //--------------------------------------------------------------------

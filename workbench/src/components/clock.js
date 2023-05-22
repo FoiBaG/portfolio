@@ -12,7 +12,7 @@ function Clock() {
 
     return (
         <>
-            <div>
+            <div className="body-clock">
                 <h1>{time.toLocaleTimeString()}</h1>
             </div>
         </>

@@ -30,11 +30,20 @@ function TaskContent() {
 
   return (
     <>
-      <div>
         <div className="tasks-content">
           <h2>My tasks</h2>
+          <div className="tasks-body">
+            <ul>
+              {tasks.map((task, index) => (
+                <li key={index}>
+                  {task}{" "}
+                  <Button onClick={() => removeTask(index)}><i className="bi bi-x"></i>Remove Task</Button>
+                </li>
+              ))}
+            </ul>
+          </div>
           <form onSubmit={addTask}>
-            <Button type="submit" onClick={handleShow}><i className="bi bi-plus"></i>New Task</Button>
+            <Button type="submit" onClick={handleShow} onChange={addTask}><i className="bi bi-plus"></i>New Task</Button>
             <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
               <Modal.Header closeButton>
                 <Modal.Title>Add new task</Modal.Title>
@@ -43,23 +52,12 @@ function TaskContent() {
                 <input type="text" name="taskName" value={taskName} placeholder="Tasks text" onChange={handleTaskNameChange} />
               </Modal.Body>
               <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
-                  Cancel
-                </Button>
-                <Button variant="primary">Add</Button>
+                <Button variant="secondary" onClick={handleClose}>Cancel</Button>
+                <Button variant="primary" onClick={addTask}>Add</Button>
               </Modal.Footer>
             </Modal>
           </form>
-          <ul>
-            {tasks.map((task, index) => (
-              <li key={index}>
-                {task}{" "}
-                <Button onClick={() => removeTask(index)}><i className="bi bi-x"></i>Remove Task</Button>
-              </li>
-            ))}
-          </ul>
         </div>
-      </div>
     </>
   );
 };

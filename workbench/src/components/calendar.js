@@ -43,7 +43,7 @@ function CalendarNote() {
   };
 
   return (
-    <div className="calendar">
+    <div className="body-calendar">
         <h2>CALENDAR</h2>
         <Calendar
             onClickMonth={handleMonthChange}
