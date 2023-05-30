@@ -15,6 +15,7 @@ function TaskContent() {
     if (taskName.trim() !== '') {
       setTasks([...tasks, taskName]);
       setTaskName('');
+      handleClose();
     }
   };
 

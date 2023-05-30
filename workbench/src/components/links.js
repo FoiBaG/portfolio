@@ -13,9 +13,13 @@ function LinksContent() {
     const addLink = (event) => {
         event.preventDefault();
         if (linkName.trim() !== '') {
-            setLinks([...links, linkName]);
+            let linkchanged = linkName;
+            if (!(linkName.includes("http://www.") || linkName.includes("https://www." )))
+                linkchanged = "https://www." + linkchanged;
+            setLinks([...links, linkchanged]);
             setLinkName('');
-        }
+            handleClose();
+        };
     };
 
     const removeLink = (index) => {
@@ -51,7 +55,7 @@ function LinksContent() {
                         <Modal.Header closeButton>
                         </Modal.Header>
                         <Modal.Body>
-                            <input type="url" name="taskName" value={linkName} placeholder="Link URL" onChange={handleLinkNameChange} />
+                            <input type="url" name="urlName" value={linkName} placeholder="Link URL" onChange={handleLinkNameChange} />
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>Cancel</Button>
